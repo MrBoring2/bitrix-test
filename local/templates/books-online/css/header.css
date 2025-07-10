@@ -1,0 +1,118 @@
+header {
+    height: var(--header-heigth);
+    background-color: var(--color-main);
+    color: var(--color-main-text);
+    display: flex;
+    width: 100%;
+    align-items: center;
+    justify-content: center;
+    position: relative;
+}
+.header-containter {
+    width: 70%;
+    min-width: calc(var(--ui-col) * 32);
+    display: flex;/* HEADER STYLES */
+}
+header {
+    height: var(--header-heigth);
+    background-color: var(--color-main);
+    color: var(--color-main-text);
+    display: flex;
+    width: 100%;
+    align-items: center;
+    justify-content: center;
+    position: relative;
+}
+
+.header-containter {
+    width: 70%;
+    min-width: calc(var(--ui-col) * 32);
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0 1rem;
+    position: relative;
+}
+
+.header-logo {
+    width: var(--header-heigth);
+    height: var(--header-heigth);
+    flex-shrink: 0;
+}
+
+/* CENTER MENU STYLES */
+.header-nav-center {
+    flex-grow: 1;
+    display: flex;
+    justify-content: center;
+}
+
+.header-menu-desktop {
+    display: flex;
+    list-style: none;
+    gap: 1.5rem;
+    padding: 0;
+    margin: 0;
+    position: relative;
+    align-items: center;
+}
+
+.header-menu-item {
+    white-space: nowrap;
+}
+
+.header-menu-item a {
+    color: var(--color-main-text);
+    text-decoration: none;
+    transition: all 0.3s ease;
+    display: block;
+    padding: 0.5rem 0;
+    position: relative;
+}
+
+.header-menu-item.active a,
+.header-menu-item a:hover {
+    color: var(--color-main-text-active);
+}
+
+.header-right {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+}
+
+.header-logo {
+    width: var(--header-heigth);
+    height: var(--header-heigth);
+}
+
+.header-menu-desktop {
+    display: flex;
+    list-style: none;
+    gap: 1.5rem;
+    padding: 0;
+}
+
+.header-menu-item {
+  
+}
+
+.header-menu-item a, .cart-inner a{
+    color: var(--color-main-text);
+    text-decoration: none;
+    transition: 0.3s;
+}
+
+.header-menu-item.active a, .cart-inner.active{
+    color: var(--color-main-text-active);
+    transform: all 0.5 ease;
+}
+
+.header-menu-item:hover, .cart-inner:hover {
+    color: var(--color-main-text-active);
+    transform: all 0.5 ease;
+}
+
+
+
+

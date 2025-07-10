@@ -1,0 +1,33 @@
+footer {
+    margin-top: auto;
+    width: 100%;
+    background-color: var(--color-main);
+    display: flex;
+    justify-content: center;
+    color: var(--color-main-text);
+}
+
+.footer-container {
+    width: 70%;
+    gap: 2rem;
+    min-width: calc(var(--ui-col) * 32);
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-direction: column;
+    padding: 0 1rem;
+}
+
+.footer-top {
+    width: 100%;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+}
+
+.footer-bottom {
+    width: 100%;
+    display: flex;
+    justify-content: start;
+    padding-bottom: 1rem;
+}

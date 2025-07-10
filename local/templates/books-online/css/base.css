@@ -1,0 +1,94 @@
+/* color palette from <https://github.com/vuejs/theme> */
+:root {
+  --color-main: #2A5885;
+  --color-main-text: #FFFFFF;
+  --color-main-text-active: #84b9fa;
+  --color-body-text:#07071Fff;
+  --color-body-background: #FFFFFF;
+  
+}
+
+/* semantic color variables for this project */
+:root {
+  --color-background: var(--vt-c-white);
+  --color-background-soft: var(--vt-c-white-soft);
+  --color-background-mute: var(--vt-c-white-mute);
+
+  --color-border: var(--vt-c-divider-2);
+  --color-border-hover: var(--vt-c-divider-1);
+
+  --color-heading: var(--vt-c-text-1);
+  --color-text: var(--vt-c-text-1);
+  --color-text-additional: var(--vt-c-text-1)
+
+  --section-gap: 160px;
+}
+
+
+:root {
+  --font-size-normal: 1rem;
+  --font-size-normal2: calc(var(--font-size-normal) * 1.2);
+  --font-size-normal3:  calc(var(--font-size-normal) * 1.4);
+  --font-size-normal4:  calc(var(--font-size-normal) * 1.6);
+  --font-size-normal-mini: calc(var(--font-size-normal) * 0.9);
+  --font-size-mini: calc(var(--font-size-normal) * 0.8);
+  --font-size-mini3: calc(var(--font-size-normal) * 0.75);
+  --font-size-mini2: calc(var(--font-size-normal) * 0.7);
+  --font-size-min3: calc(var(--font-size-normal) * 0.6);
+  --font-size-micro: calc(var(--font-size-normal) * 0.5);
+  --font-size-large: calc(var(--font-size-normal) * 2);
+  --font-size-large2: calc(var(--font-size-normal) * 2.2);
+  --font-size-large3: calc(var(--font-size-normal) * 2.4);
+  --font-size-large4: calc(var(--font-size-normal) * 2.6);
+  --font-size-large5: calc(var(--font-size-normal) * 3);
+  --font-size-super-large: calc(var(--font-size-normal) * 4);
+  --font-size-extra-large: calc(var(--font-size-normal) * 6);
+  --font-size-icons-normal: var(--font-size-normal);
+  --font-size-icons-normal2: calc(var(--font-size-normal) * 1.2);
+}
+
+:root {
+   --vs-controls-color: #664cc3;
+  --vs-border-color: #664cc3;
+
+  --vs-dropdown-bg: #282c34;
+  --vs-dropdown-color: #cc99cd;
+  --vs-dropdown-option-color: #cc99cd;
+
+  --vs-selected-bg: #664cc3;
+  --vs-selected-color: #eeeeee;
+
+  --vs-search-input-color: #eeeeee;
+
+  --vs-dropdown-option--active-bg: #664cc3;
+  --vs-dropdown-option--active-color: #eeeeee;
+}
+
+
+:root {
+  --ui-col: 40px;
+  --ui-unit: 4px;
+  --header-heigth: 4.9rem;
+  --header-offset: 3rem;
+}
+
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+  margin: 0;
+}
+
+@media (max-width: 900px) {
+  :root {
+     --header-heigth: 4em;
+  }
+}
+
+@media screen and (min-width: 1921px) {
+html {
+       font-size: clamp(16px, 0.8vw, 41.33px);
+   }
+
+}

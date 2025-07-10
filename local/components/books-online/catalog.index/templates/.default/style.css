@@ -1,0 +1,98 @@
+.catalog-top-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 1.5rem;
+}
+
+#catalog-top-inner {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 1rem;
+    padding: 0 1rem;
+    width: 100%;
+}
+
+.catalog-top-item {
+    height: 30rem;
+ 
+    display: flex;
+    padding: 1rem 0;
+    flex-direction: column;
+    justify-content: space-between;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+    border-radius: 0.5rem;
+    transition: all 0.2s ease;
+}
+
+.catalog-top-item:hover {
+    transform: translateY(-0.5rem);
+}
+
+.catalog-top-item-content {
+    width: 100%;
+    height: 100%;
+    position: relative;
+    display: flex;
+    gap: 0.2rem;
+    flex-direction: column;
+}
+
+.catalog-top-item img {
+    height: 20rem;
+    object-fit: contain;
+}
+
+.add-to-cart {
+    margin: 0 2rem;
+    background: var(--color-main);
+    color: var(--color-main-text);
+    border: none;
+    border-radius: 0.5rem;
+    height: 2rem;
+    transition: 0.3s;
+    font-size: var(--font-size-normal-mini);
+}
+
+.add-to-cart:hover {
+    background-color: var(--color-main-text-active);
+    transform: all 0.5 ease;
+}
+
+.book-title {
+    padding: 0 2rem;
+    font-size: var(--font-size-normal);
+    font-weight: 500;
+    display: -webkit-box;      
+    -webkit-line-clamp: 2;          
+    -webkit-box-orient: vertical;    
+    overflow: hidden;               
+    text-overflow: ellipsis;
+
+}
+
+.book-authors {
+      padding: 0 2rem;
+      color: var(--color-sub-text);
+      font-weight: 500;
+      font-size: var(--font-size-mini);
+}
+
+.book-price {
+    padding: 0 2rem;
+    color: var(--color-main);
+    font-weight: 500;
+}
+
+#load-more {
+   background: transparent;
+   border: none;
+   font-size: var(--font-size-normal3);
+   color: var(--color-main);
+   transition: 0.3s;
+}
+
+#load-more:hover {
+     color: var(--color-main-text-active);
+     transform: all 0.5 ease;
+}

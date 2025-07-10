@@ -1,0 +1,15 @@
+<?php if (!defined("B_PROLOG_INCLUDED") || B_PROLOG_INCLUDED !== true) die(); ?>
+<? foreach ($arResult['ITEMS'] as $item): ?>
+    <div class="catalog-top-item">
+        <div class="catalog-top-item-content">
+            <? if ($item['PREVIEW_PICTURE_SRC']):?>
+                <img src="<?= $item['PREVIEW_PICTURE_SRC'] ?>" alt="<?= htmlspecialchars($item['NAME']) ?>">
+            <?endif?>
+            <p class="book-price">Цена: <?= intval($item['CATALOG_PRICE_1']) ?>  руб.</p>
+            <p class="book-title"><?= htmlspecialchars($item['NAME']) ?> </p>
+            <p class="book-authors"><?= htmlspecialchars($item['AUTHORS_STRING']) ?> </p>
+        </div>
+            
+        <button class="add-to-cart">Купить</button>
+    </div>
+<?endforeach?>
