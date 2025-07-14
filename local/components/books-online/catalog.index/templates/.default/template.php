@@ -3,7 +3,8 @@
     <div id="catalog-top-inner">
     <? foreach ($arResult['ITEMS'] as $item): ?>
         <div class="catalog-top-item">
-             <div class="catalog-top-item-content">
+            <a href="/catalog/<?= htmlspecialchars($item['CODE']) ?>/" class="catalog-link">
+            <div class="catalog-top-item-content">
              <? if ($item['PREVIEW_PICTURE_SRC']):?>
                 <img src="<?= $item['PREVIEW_PICTURE_SRC'] ?>" alt="<?= htmlspecialchars($item['NAME']) ?>">
             <?endif?>
@@ -11,7 +12,11 @@
             <p class="book-title"><?= htmlspecialchars($item['NAME']) ?> </p>
             <p class="book-authors"><?= htmlspecialchars($item['AUTHORS_STRING']) ?> </p>
             </div>
-            <button class="add-to-cart">Купить</button>
+                <button style="<?= $item['IS_IN_CART'] ? 'display:none' : '' ?>" class="add-to-cart" data-id="<?= $item["ID"]?>">Купить</button>
+                <a style="<?= !$item['IS_IN_CART'] ? 'display:none' : '' ?>" class="to-cart-href" href="/cart">
+                    <p>В корзине</p>
+                </a>
+            </a>
         </div>
     <?endforeach?>
     </div>

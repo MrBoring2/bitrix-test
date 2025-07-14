@@ -2,20 +2,31 @@
     display: flex;
     flex-direction: column;
     align-items: center;
+    justify-content: center;
     gap: 1.5rem;
+    width: 100%;
 }
+
 
 #catalog-top-inner {
     display: grid;
     grid-template-columns: repeat(4, 1fr);
     gap: 1rem;
-    padding: 0 1rem;
+    padding-left: 1rem;
     width: 100%;
 }
 
+.catalog-link {
+    display: flex;
+    width: 100%;
+    flex-direction: column;
+    height: 100%;
+    text-decoration: none;
+}
+
 .catalog-top-item {
-    height: 30rem;
- 
+    height: 29rem;
+    width: 100%;
     display: flex;
     padding: 1rem 0;
     flex-direction: column;
@@ -39,11 +50,13 @@
 }
 
 .catalog-top-item img {
-    height: 20rem;
+    width: 90%;
+    align-self: center;
+    height: 18rem;
     object-fit: contain;
 }
 
-.add-to-cart {
+.add-to-cart, .to-cart-href {
     margin: 0 2rem;
     background: var(--color-main);
     color: var(--color-main-text);
@@ -52,9 +65,23 @@
     height: 2rem;
     transition: 0.3s;
     font-size: var(--font-size-normal-mini);
+    text-align: center;
+    text-decoration: none;
+    display: flex;
+    align-items: center;
+    justify-content: center;
 }
 
-.add-to-cart:hover {
+.add-to-cart:disabled {
+    background: var(--color-sub-text);
+    transform: all 0.5 ease;
+}
+
+.to-cart-href {
+    background: var(--color-confirm);
+}
+
+.add-to-cart:hover:not(:disabled), .to-cart-href:hover:not(:disabled) {
     background-color: var(--color-main-text-active);
     transform: all 0.5 ease;
 }
@@ -62,6 +89,7 @@
 .book-title {
     padding: 0 2rem;
     font-size: var(--font-size-normal);
+    color: var( --color-body-text);
     font-weight: 500;
     display: -webkit-box;      
     -webkit-line-clamp: 2;          
@@ -90,6 +118,7 @@
    font-size: var(--font-size-normal3);
    color: var(--color-main);
    transition: 0.3s;
+   margin-top: auto;
 }
 
 #load-more:hover {

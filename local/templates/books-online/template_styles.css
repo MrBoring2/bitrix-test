@@ -6,7 +6,10 @@
   --color-main-text-active: #84b9fa;
   --color-body-text:#07071Fff;
   --color-body-background: #FFFFFF;
-  
+  --color-text-acsent: #fa1157;
+  --color-light-border: #f1f4f5;
+  --color-confirm: #4dd09c;
+  --color-cancel: red;
 }
 
 

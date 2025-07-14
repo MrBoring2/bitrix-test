@@ -5,6 +5,7 @@ use Bitrix\Main\Loader;
 use Bitrix\Main\Context;
 use Bitrix\Main\SystemException;
 
+use Bitrix\Sale\Fuser;
 class BooksOnlineTopCatalogComponent extends CBitrixComponent{
     
     protected $isAjax = false;
@@ -38,7 +39,7 @@ class BooksOnlineTopCatalogComponent extends CBitrixComponent{
     }
     protected function checkModules()
     {
-        if (!Loader::includeModule('iblock'))
+        if (!Loader::includeModule('iblock') || !Loader::includeModule('sale'))
             throw new SystemException("Не удалось подключить модуль iblock");
 
     }
@@ -75,7 +76,7 @@ class BooksOnlineTopCatalogComponent extends CBitrixComponent{
                 $filter['SECTION_ID'] = $sectionId;
                 $filter['INCLUDE_SUBSECTIONS'] = 'Y';
             }
-           if (!empty($authorFilter)) {
+            if (!empty($authorFilter)) {
             $filter[] = $authorFilter;
             }
             if ($_REQUEST['PRICE_MIN']) {
@@ -84,6 +85,26 @@ class BooksOnlineTopCatalogComponent extends CBitrixComponent{
             if ($_REQUEST['PRICE_MAX']) {
                 $filter['<=CATALOG_PRICE_1'] = (float)$_REQUEST['PRICE_MAX'];
             }
+
+            if ($_REQUEST['YEAR_MIN']) {
+                $filter['>=PROPERTY_ATT_PUBLISHING_YEAR'] = (int)$_REQUEST['YEAR_MIN'];
+            }
+             if ($_REQUEST['YEAR_MAX']) {
+                $filter['<=PROPERTY_ATT_PUBLISHING_YEAR'] = (int)$_REQUEST['YEAR_MAX'];
+            }
+
+            $fuserId = Fuser::getId();
+            $basket = \CSaleBasket::GetList([], [
+                'FUSER_ID' => $fuserId,
+                'LID' => SITE_ID,
+                'ORDER_ID' => 'NULL'
+            ]);
+
+            $inCartIds = [];
+            while ($item = $basket->Fetch()) {
+                $inCartIds[] = (int)$item['PRODUCT_ID'];
+            }
+
 
             $res = CIBlockElement::GetList(
             ['NAME' => 'ASC'],
@@ -94,7 +115,7 @@ class BooksOnlineTopCatalogComponent extends CBitrixComponent{
             'nPageSize' => $this->arParams['ELEMENTS_COUNT'],
             'bShowAll' => false
             ],
-            ['ID', 'NAME', 'PREVIEW_PICTURE', 'CATALOG_PRICE_1']
+            ['ID', 'CODE', 'NAME', 'PREVIEW_PICTURE', 'CATALOG_PRICE_1']
             );
             while($item = $res->fetch()) {  
                 if($item['PREVIEW_PICTURE']) {
@@ -108,6 +129,9 @@ class BooksOnlineTopCatalogComponent extends CBitrixComponent{
                 }
                 $item['AUTHORS'] = $VALUES;
                 $item['AUTHORS_STRING'] = implode(', ', $VALUES);
+
+                $item['IS_IN_CART'] = in_array((int)$item['ID'], $inCartIds);
+
                 $items[] = $item;
             }
             $this->arResult['ITEMS'] = $items;

@@ -1,0 +1,22 @@
+.cart-mini-inner {
+    display: flex;
+    text-decoration: none;
+    color: var(--color-main-text);
+    gap: 0.5rem;
+    transition: 0.3s;
+}
+
+.cart-mini-inner:hover {
+    color: var(--color-main-text-active);
+    transform: all 0.5 ease;
+}
+
+.cart-mini-quatity, .cart-mini-price, .cart-mini-total-quantity
+{
+    display: flex;
+    font-size: var(--font-size-normal);
+}
+
+.craft-mini-left {
+    font-size: var(--font-size-normal2);
+}

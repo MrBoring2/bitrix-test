@@ -31,3 +31,9 @@ footer {
     justify-content: start;
     padding-bottom: 1rem;
 }
+
+@media (max-width: 900px) {
+    .footer-container {
+        min-width: 100%;
+    }
+}

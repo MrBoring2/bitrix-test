@@ -8,7 +8,7 @@ $bIsMainPage = $APPLICATION->GetCurPage(false) == SITE_DIR;
 	<head>
 		<meta charset="utf-8" />
 		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
-		<title><?$APPLICATION->ShowTitle();?></title>
+		<title><?$APPLICATION->ShowProperty("title2")?></title>
 		<link rel="icon" href="<?=SITE_TEMPLATE_PATH?>/images/favicon.ico">
 		<?
 		$APPLICATION->SetAdditionalCSS(SITE_TEMPLATE_PATH."/css/font-awesome.min.css");
@@ -17,6 +17,7 @@ $bIsMainPage = $APPLICATION->GetCurPage(false) == SITE_DIR;
 		$APPLICATION->SetAdditionalCSS(SITE_TEMPLATE_PATH."/css/about-shop.css");
 		$APPLICATION->AddHeadScript(SITE_TEMPLATE_PATH."/js/jquery-3.7.1.min.js");
 		$APPLICATION->AddHeadScript(SITE_TEMPLATE_PATH."/js/books_online.js");
+		$APPLICATION->AddHeadScript(SITE_TEMPLATE_PATH."/js/cart.js");
 		
 		
 	
@@ -52,53 +53,48 @@ $bIsMainPage = $APPLICATION->GetCurPage(false) == SITE_DIR;
 			);?>
 			</div>
 			<div class="header-right">
-				<?$APPLICATION->IncludeComponent(
-	"bitrix:search.title", 
-	"main_search", 
-	array(
-		"CATEGORY_0" => array(
-			0 => "iblock_books_shop",
-		),
-		"CATEGORY_0_TITLE" => "",
-		"CHECK_DATES" => "N",
-		"CONTAINER_ID" => "title-search",
-		"INPUT_ID" => "title-search-input",
-		"NUM_CATEGORIES" => "1",
-		"ORDER" => "date",
-		"PAGE" => "#SITE_DIR#search/index.php",
-		"SHOW_INPUT" => "Y",
-		"SHOW_OTHERS" => "N",
-		"TOP_COUNT" => "5",
-		"USE_LANGUAGE_GUESS" => "Y",
-		"COMPONENT_TEMPLATE" => "main_search",
-		"CATEGORY_0_iblock_books_shop" => array(
-			0 => "1",
-		)
-	),
-	false
-);?>
-                <?$APPLICATION->IncludeComponent("bitrix:sale.basket.basket.line", "small_cart", Array(
-	"HIDE_ON_BASKET_PAGES" => "N",	// Не показывать на страницах корзины и оформления заказа
-		"PATH_TO_AUTHORIZE" => "",	// Страница авторизации
-		"PATH_TO_BASKET" => SITE_DIR."cart/",	// Страница корзины
-		"PATH_TO_ORDER" => SITE_DIR."order/",	// Страница оформления заказа
-		"PATH_TO_PERSONAL" => SITE_DIR."personal/",	// Страница персонального раздела
-		"PATH_TO_PROFILE" => SITE_DIR."personal/",	// Страница профиля
-		"PATH_TO_REGISTER" => SITE_DIR."login/",	// Страница регистрации
-		"POSITION_FIXED" => "N",	// Отображать корзину поверх шаблона
-		"SHOW_AUTHOR" => "N",	// Добавить возможность авторизации
-		"SHOW_EMPTY_VALUES" => "Y",	// Выводить нулевые значения в пустой корзине
-		"SHOW_NUM_PRODUCTS" => "Y",	// Показывать количество товаров
-		"SHOW_PERSONAL_LINK" => "N",	// Отображать персональный раздел
-		"SHOW_PRODUCTS" => "N",	// Показывать список товаров
-		"SHOW_REGISTRATION" => "N",	// Добавить возможность регистрации
-		"SHOW_TOTAL_PRICE" => "Y",	// Показывать общую сумму по товарам
-	),
-	false
-);?>
+				<div class="header-search">	
+							<?$APPLICATION->IncludeComponent(
+				"bitrix:search.title", 
+				"main_search", 
+				array(
+					"CATEGORY_0" => array(
+						0 => "iblock_books_shop",
+					),
+					"CATEGORY_0_TITLE" => "",
+					"CHECK_DATES" => "N",
+					"CONTAINER_ID" => "title-search",
+					"INPUT_ID" => "title-search-input",
+					"NUM_CATEGORIES" => "1",
+					"ORDER" => "date",
+					"PAGE" => "#SITE_DIR#search/index.php",
+					"SHOW_INPUT" => "Y",
+					"SHOW_OTHERS" => "N",
+					"TOP_COUNT" => "5",
+					"USE_LANGUAGE_GUESS" => "Y",
+					"COMPONENT_TEMPLATE" => "main_search",
+					"CATEGORY_0_iblock_books_shop" => array(
+						0 => "1",
+					)
+				),
+				false
+			);?>
+			</div>
+			<div id="header-cart-mini-container">
+				<?$APPLICATION->IncludeComponent("books-online:cart_mini", "", Array(
+					
+				),
+				false
+			);?>
+</div>
+   
             </div>
 		</div>
 	</header>
 		<div class="body-main">		
-			<h1 class="page-title"><?$APPLICATION->ShowTitle();?></h1>
+			<?php
+			if ($APPLICATION->GetCurPage(true) !== SITE_DIR . 'index.php'):
+			?>
+				<h1 class="page-title"><?$APPLICATION->ShowTitle()?></h1>
+			<?php endif; ?>
 			<div class="main-container">

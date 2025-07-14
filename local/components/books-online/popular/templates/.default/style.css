@@ -1,0 +1,111 @@
+.catalog-top-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 1.5rem;
+    width: 100%;
+}
+
+#catalog-top-inner {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 1rem;
+    width: 100%;
+}
+
+.catalog-link {
+    display: flex;
+    width: 100%;
+    flex-direction: column;
+    height: 100%;
+    text-decoration: none;
+}
+
+.catalog-top-item {
+    height: 29rem;
+    width: 100%;
+    display: flex;
+    padding: 1rem 0;
+    flex-direction: column;
+    justify-content: space-between;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+    border-radius: 0.5rem;
+    transition: all 0.2s ease;
+}
+
+.catalog-top-item:hover {
+    transform: translateY(-0.5rem);
+}
+
+.catalog-top-item-content {
+    width: 100%;
+    height: 100%;
+    position: relative;
+    display: flex;
+    gap: 0.2rem;
+    flex-direction: column;
+}
+
+.catalog-top-item img {
+    width: 90%;
+    align-self: center;
+    height: 18rem;
+    object-fit: contain;
+}
+
+.add-to-cart, .to-cart-href {
+    margin: 0 2rem;
+    background: var(--color-main);
+    color: var(--color-main-text);
+    border: none;
+    border-radius: 0.5rem;
+    height: 2rem;
+    transition: 0.3s;
+    font-size: var(--font-size-normal-mini);
+    text-align: center;
+    text-decoration: none;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.add-to-cart:disabled {
+    background: var(--color-sub-text);
+    transform: all 0.5 ease;
+}
+
+.to-cart-href {
+    background: var(--color-confirm);
+}
+
+.add-to-cart:hover:not(:disabled), .to-cart-href:hover:not(:disabled) {
+    background-color: var(--color-main-text-active);
+    transform: all 0.5 ease;
+}
+
+.book-title {
+    padding: 0 2rem;
+    font-size: var(--font-size-normal);
+    color: var( --color-body-text);
+    font-weight: 500;
+    display: -webkit-box;      
+    -webkit-line-clamp: 2;          
+    -webkit-box-orient: vertical;    
+    overflow: hidden;               
+    text-overflow: ellipsis;
+
+}
+
+.book-authors {
+      padding: 0 2rem;
+      color: var(--color-sub-text);
+      font-weight: 500;
+      font-size: var(--font-size-mini);
+}
+
+.book-price {
+    padding: 0 2rem;
+    color: var(--color-main);
+    font-weight: 500;
+}

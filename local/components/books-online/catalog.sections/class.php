@@ -23,6 +23,11 @@ class BooksOnlineSectionsComponent extends CBitrixComponent
         $this->arResult['IBLOCK_ID'] = $this->arParams['IBLOCK_ID'];
         $this->arResult['ELEMENT_COUNT'] = $this->arParams['ELEMENT_COUNT'];
         $this->arResult['SECTIONS'] = [];
+        $this->arResult['SECTION_CHAIN'] = [];
+        $this->arResult['SECTION_CHAIN'][] = [
+            'NAME' => 'Книги',
+            'CODE' => '',
+        ];
 
         $sectionCode = $_REQUEST['section'] ?? null;
         $this->arResult['PARENT_SECTION'] = null;
@@ -43,14 +48,24 @@ class BooksOnlineSectionsComponent extends CBitrixComponent
                 $filter['SECTION_ID'] = $parent['ID'];
                 $this->arResult['PARENT_SECTION'] = $parent;
 
-                // НАХОДИМ РОДИТЕЛЯ ПОДСЕКЦИИ
+                $nav = CIBlockSection::GetNavChain(
+            $this->arParams['IBLOCK_ID'],
+            $parent['ID'],
+            ['ID', 'NAME', 'CODE']
+            );
+            $chain = [];
+            while ($chainSection = $nav->GetNext()) {
+                $chain[] = $chainSection;
+            }
+            array_pop($chain);
+            $this->arResult['SECTION_CHAIN'] = array_merge($this->arResult['SECTION_CHAIN'], $chain);
                 if ($parent['IBLOCK_SECTION_ID']) {
                     $parentSection = CIBlockSection::GetByID($parent['IBLOCK_SECTION_ID'])->GetNext();
                     if ($parentSection) {
                         $this->arResult['BACK_SECTION_CODE'] = $parentSection['CODE'];
                     }
                 } else {
-                    $this->arResult['BACK_SECTION_CODE'] = ''; // верхний уровень
+                    $this->arResult['BACK_SECTION_CODE'] = '';
                 }
                 $GLOBALS['CURRENT_SECTION_CODE'] = $sectionCode;
             }

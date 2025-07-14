@@ -2,22 +2,21 @@
 
 <div class="catalog-wrapper">
     <div class="catalog-sidebar">
-         <div class="section-list">
-            <?$APPLICATION->IncludeComponent(
+        <div class="catalog-sections" >
+                <?$APPLICATION->IncludeComponent(
             "books-online:catalog.sections",
             "",
             [
                 "IBLOCK_ID" => $arParams["IBLOCK_ID"],
                 "CURRENT_SECTION" => $_GET["section"] ?? null,
                 "ELEMENT_COUNT" => $arParams["ELEMENTS_COUNT"],
-            ],
+                ],
             $component
-            );?>
+                );?>
         </div>
-    </div>
 
-    <div class="catalog-content">
-        <?$APPLICATION->IncludeComponent(
+        <div class="catalog-filter">
+            <?$APPLICATION->IncludeComponent(
             "books-online:catalog.filter",
             "",
             [
@@ -25,8 +24,10 @@
                 'SECTION_CODE' => $arResult['BACK_SECTION_CODE'] ?? ($_REQUEST['section'] ?? null),
                 
             ]
-        );?>
-
+            );?>
+        </div>
+    </div>
+    <div class="catalog-content">
         <?$APPLICATION->IncludeComponent(
             "books-online:catalog.index",
             "",

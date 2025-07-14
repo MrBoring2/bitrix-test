@@ -1,0 +1,331 @@
+.element-details-inner {
+    display: flex;
+    width: 100%;
+    height: 100%;
+    gap: 2rem;
+}
+.element-details-left {
+    display: flex;
+    flex-direction: column;
+    width: 80%;
+    gap: 3rem;
+    justify-content: start;
+    align-items: start;
+}
+
+#button-back {
+    background: var(--color-main);
+
+    border: none;
+    height: 2rem;
+    
+    border-radius: 0.5rem;
+    font-size: var(--font-size-normal);
+    transition: 0.3s;
+}
+
+#button-back:hover {
+    background: var(--color-main-text-active);
+    transform: all 0.5 ease;
+}
+
+#button-back a {
+    display: flex;
+    gap: 0.5rem;
+        color: var(--color-main-text);
+        text-decoration: none;
+    align-items: center;
+}
+
+
+.element-details-preview-content {
+    display: flex;
+    gap: 4rem;
+}
+
+#displayed-image {
+    width: 18rem;
+    height: 30rem;
+  
+}
+
+
+#displayed-image img {
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
+}
+
+
+
+.book-authors {
+    font-size: var(--font-size-normal);
+    color: var(--color-main);
+    font-weight: 500;
+}
+
+.element-descrtiption-preview {
+    font-size: var(--font-size-normal);
+    font-weight: 500;
+    display: -webkit-box;      
+    -webkit-line-clamp: 5;          
+    -webkit-box-orient: vertical;    
+    overflow: hidden;               
+    text-overflow: ellipsis;
+}
+
+.element-details-preview {
+    display: flex;
+    flex-direction: column  ;
+    gap: 0.5rem;
+    justify-content: start;
+    align-items: start;
+}
+
+.detail-title {
+    color: var(--color-sub-text);
+    font-weight: 500;
+}
+
+.detail-button {
+    background: transparent;
+    border: none;
+    text-decoration: none;
+    color: var(--color-main);
+    transition: 0.3s;
+    padding: 0;
+    font-size: var(--font-size-normal);
+}
+
+.detail-button:hover {
+    color: var(--color-main-text-active);
+    transform: all 0.5 ease;
+}
+
+.detail-item {
+    display: flex;
+    gap: 1.5rem;
+}
+
+.details-images {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+}
+
+.preview-details {
+    padding-left: 0;
+    margin-top: auto;
+    gap: 1rem;
+    display: flex;
+    flex-direction: column;
+}
+
+.details-images-list {
+    display: flex;
+    flex-direction: row;
+    gap: 0.5rem;
+    justify-content: space-between;
+}
+
+.detail-title {
+    width: 10rem;
+}
+
+.image-item {
+    position: relative;
+    height: 5rem;
+    width: 33.3%;
+    border: solid 0.2rem transparent;
+    transition: 0.3s;
+}
+
+.image-item-backgorund {
+    z-index: 1;
+    background: black;
+    height: 100%;
+    opacity: 0;
+    width: 100%;
+    position: absolute;
+    transition: 0.3s;
+}
+
+#images-full-size-wrapper {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    background: var(--color-main-text);
+    z-index: 20000;
+    transform: translateY(100%);
+    opacity: 0;
+    pointer-events: none;
+    transition: transform 0.3s ease, opacity 0.3s ease;
+}
+
+#images-full-size-wrapper.active {
+    transform: translateY(0);
+    opacity: 1;
+    pointer-events: auto;
+}
+
+.images-full-size-inner {
+    display: flex;
+    position: relative;
+    width: 100%;
+    height: 100%;
+    gap: 1rem;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+#close-full-size-button {
+    position: absolute;
+    top: 1rem;
+    width: 2rem;
+    height: 2rem;
+    right: 2rem;
+    font-size: var(--font-size-normal3);
+    background: var(--color-main);
+    border: none;
+    border-radius: 0.5rem;
+    color: var(--color-main-text);
+    transition: 0.3s;
+}
+
+#close-full-size-button:hover {
+     background: var(--color-main-text-active);
+     transform: all 0.5 ease;
+}
+
+#displayed-image-full-size {
+    height: 80%;
+}
+
+#displayed-image-full-size img {
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
+}
+
+.image-list-full-size {
+    display: flex;
+    gap: 0.5rem;
+}
+
+.image-item-full-size {
+    position: relative;
+    height: 7rem;
+    width: 5rem;
+    border: solid 0.2rem transparent;
+    transition: 0.3s;
+}
+
+.image-item-full-size img {
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
+}
+
+.image-item:hover, .image-item-full-size:hover {
+    border: solid 0.2rem var(--color-light-border);
+    transform: all 0.5 ease;
+}
+
+.image-item:hover .image-item-backgorund, .image-item-full-size:hover .image-item-backgorund {
+    opacity: 0.2;
+    transform: all 0.5 ease;
+}
+
+.image-item img {
+    z-index: 2;
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
+}
+
+.element-details-right {
+    border: solid 0.15rem var(--color-light-border);
+    margin-bottom: auto;
+    border-radius: 0.25rem;
+    width: 20%;
+    padding-top: 2rem;
+    padding-bottom: 2rem;
+    padding-left: 1rem;
+    padding-right: 1rem;
+    display: flex;
+    position: sticky;
+    flex-direction: column;
+    gap: 1rem;
+    top: calc(var( --header-heigth) + 20px);
+}
+
+.detail-price {
+    font-size: var(--font-size-normal4);
+    color: var(--color-text-acsent);
+    font-weight: 500;
+}
+
+html {
+    scroll-behavior: smooth;;
+}
+
+#to-cart-href {
+    text-decoration: none;
+}
+
+
+#buy-button, #to-cart {
+    background: var(--color-main);
+    border: none;
+    border-radius: 0.5rem;
+    color: var(--color-main-text);
+    height: 3rem;
+    transition: 0.3s;
+    width: 100%;
+    font-size: var(--font-size-normal2);
+}
+
+#to-cart {
+    background: var(--color-confirm);
+}
+
+#buy-button:disabled {
+    background: var(--color-sub-text);
+    transform: all 0.5 ease;
+}
+
+#buy-button:hover:not(:disabled), #to-cart:hover:not(:disabled) {
+    background: var(--color-main-text-active);
+    transform: all 0.5 ease;
+}
+
+.details-quantity-stock, .details-quantity-not-stock {
+    display: flex;
+    gap: 0.5rem;
+    align-items: center;
+    font-size: var(--font-size-normal2);
+}
+
+.details-quantity-stock {
+    color: var(--color-confirm);
+    font-weight: 500;
+}
+
+.details-quantity-not-stock {
+    color: var(--color-close);
+     font-weight: 500;
+}
+
+.element-details-description {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+}
+
+.details-description {
+    font-weight: 500;
+}
+

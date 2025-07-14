@@ -6,24 +6,10 @@ header {
     width: 100%;
     align-items: center;
     justify-content: center;
-    position: relative;
+    position: sticky;
+    top: 0;
+    z-index: 100;
 }
-.header-containter {
-    width: 70%;
-    min-width: calc(var(--ui-col) * 32);
-    display: flex;/* HEADER STYLES */
-}
-header {
-    height: var(--header-heigth);
-    background-color: var(--color-main);
-    color: var(--color-main-text);
-    display: flex;
-    width: 100%;
-    align-items: center;
-    justify-content: center;
-    position: relative;
-}
-
 .header-containter {
     width: 70%;
     min-width: calc(var(--ui-col) * 32);
@@ -97,22 +83,30 @@ header {
   
 }
 
-.header-menu-item a, .cart-inner a{
+.header-menu-item a{
     color: var(--color-main-text);
     text-decoration: none;
     transition: 0.3s;
 }
 
-.header-menu-item.active a, .cart-inner.active{
+.header-menu-item.active a{
     color: var(--color-main-text-active);
     transform: all 0.5 ease;
 }
 
-.header-menu-item:hover, .cart-inner:hover {
+.header-menu-item:hover {
     color: var(--color-main-text-active);
     transform: all 0.5 ease;
 }
 
+@media (max-width: 900px) {
+    .header-search, .header-menu-desktop-container {
+        display: none;
+    }
 
-
+    .header-containter{
+        min-width: 100%;
+        width: 100%;
+    }
+}
 

@@ -1,10 +1,11 @@
 <?
 require($_SERVER["DOCUMENT_ROOT"]."/bitrix/header.php");
+$APPLICATION->SetPageProperty("title2", "Книги-Онлайн — Оформление заказа");
 $APPLICATION->SetTitle("Оформление заказа");
 ?><?$APPLICATION->IncludeComponent(
-	"bitrix:sale.order.ajax",
-	"",
-	Array(
+	"bitrix:sale.order.ajax", 
+	".default", 
+	array(
 		"ACTION_VARIABLE" => "soa-action",
 		"ADDITIONAL_PICT_PROP_1" => "-",
 		"ALLOW_APPEND_ORDER" => "Y",
@@ -18,7 +19,7 @@ $APPLICATION->SetTitle("Оформление заказа");
 		"DELIVERY_FADE_EXTRA_SERVICES" => "N",
 		"DELIVERY_NO_AJAX" => "N",
 		"DELIVERY_NO_SESSION" => "Y",
-		"DELIVERY_TO_PAYSYSTEM" => "p2d",
+		"DELIVERY_TO_PAYSYSTEM" => "d2p",
 		"DISABLE_BASKET_REDIRECT" => "N",
 		"EMPTY_BASKET_HINT_PATH" => "/",
 		"HIDE_ORDER_DESCRIPTION" => "N",
@@ -31,8 +32,12 @@ $APPLICATION->SetTitle("Оформление заказа");
 		"PAY_SYSTEMS_PER_PAGE" => "9",
 		"PICKUPS_PER_PAGE" => "5",
 		"PICKUP_MAP_TYPE" => "yandex",
-		"PRODUCT_COLUMNS_HIDDEN" => array(),
-		"PRODUCT_COLUMNS_VISIBLE" => array("PREVIEW_PICTURE","PROPS"),
+		"PRODUCT_COLUMNS_HIDDEN" => array(
+		),
+		"PRODUCT_COLUMNS_VISIBLE" => array(
+			0 => "PREVIEW_PICTURE",
+			1 => "PROPS",
+		),
 		"SEND_NEW_USER_NOTIFY" => "Y",
 		"SERVICES_IMAGES_SCALING" => "adaptive",
 		"SET_TITLE" => "Y",
@@ -69,6 +74,8 @@ $APPLICATION->SetTitle("Оформление заказа");
 		"USE_PHONE_NORMALIZATION" => "Y",
 		"USE_PRELOAD" => "Y",
 		"USE_PREPAYMENT" => "N",
-		"USE_YM_GOALS" => "N"
-	)
+		"USE_YM_GOALS" => "N",
+		"COMPONENT_TEMPLATE" => ".default"
+	),
+	false
 );?><?require($_SERVER["DOCUMENT_ROOT"]."/bitrix/footer.php");?>

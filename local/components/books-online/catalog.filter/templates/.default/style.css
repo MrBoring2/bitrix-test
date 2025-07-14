@@ -1,0 +1,107 @@
+.filter-title {
+    font-size: var(--font-size-normal3);
+    font-weight: 500;
+}
+
+#catalog-filter-form {
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+}
+
+.filter-item {
+    display: flex;
+    flex-direction: column;
+}
+
+.search-filter {
+    background: var(--color-main-text);
+    width: 100%;
+    display: flex;
+    gap: 0.5rem;
+    border: solid 0.1rem var(--color-sub-text);  
+    height: 2rem;
+    align-items: center; 
+    text-align:end;
+    padding-left: 0.5rem;
+    border-radius: 0.3rem;
+    transition: 0.1s;
+}
+
+.search-filter:focus-within, .range-filter-inner:focus-within {	
+ 	 box-shadow: 0 0 0 0.15rem var(--color-main-text-active);
+	 transform: all 0.5 ease;
+}
+
+.search-filter .fa {
+    margin-bottom: 0.1rem;
+    color: var(--color-main);
+}
+
+.filter-item-title {
+    font-weight: 500;
+    font-size: var(--font-size-normal2);
+}
+
+.filter-input {
+    width: 100%;
+    border: none;
+    line-height: 1;
+    outline: none;
+  
+    align-items: center;
+    font-size: var(--font-size-normal-mini);
+}
+
+.range-filter {
+    display: flex;
+    width: 100%;
+    gap: 0.5rem;
+}
+
+.range-filter-inner {
+    width: 50%;
+    border: solid 0.1rem var(--color-sub-text); 
+    height: 2rem; 
+    border-radius: 0.3rem;
+    display: flex;
+    gap: 0.5rem;
+    align-items: center;
+    padding-left: 0.5rem;
+   
+    transition: 0.1s;
+}
+
+.filter-range-input {
+    width: 100%;
+    outline: none;  
+    border: none; 
+      font-size: var(--font-size-normal-mini);
+}
+
+.range-filter-sub-text {
+    line-height: 1;
+    color: var(--color-main);
+    font-weight: 500;
+     margin-bottom: 0.1rem;
+}
+
+#post_filter_button, #drop_filter_button {
+    background: var(--color-main);
+    border: none;
+    border-radius: 0.5rem;
+    height: 2rem;
+    color: var(--color-main-text);
+    transition: 0.3s;
+    font-size: var(--font-size-normal-mini);
+}
+
+#post_filter_button:disabled, #drop_filter_button:disabled {
+    background-color: var(--color-sub-text);
+    transform: all 0.5 ease;
+}
+
+#post_filter_button:hover:not(:disabled), #drop_filter_button:hover:not(:disabled) {
+    background: var(--color-main-text-active);
+    transform: all 0.5 ease;
+}
